@@ -68,15 +68,36 @@ button {
   text-align: center;
 }
 
-.flex{
+.flex {
   display: flex;
 }
 
-.flex-center{
+.flex-center {
   display: flex;
   align-items: center;
 }
 
-.justify-center{
+.justify-center {
   justify-content: center;
+}
+
+.content {
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 24px;
+  height: calc(100dvh - 108px);
+}
+
+.no-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100dvh - 108px);
+}
+
+@media (max-width: 960px) {
+  .no-data {
+    height: calc(100dvh - 156px);
+  }
 }

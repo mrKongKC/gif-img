@@ -9,6 +9,8 @@ import "./css/App.css"
 const App = () => {
   const [gifs, setGifs] = useState([]);
   const [savedGifs, setSavedGifs] = useState([]);
+  const [statusInventory, setStatusInventory] = useState(false);
+
   const defaultValue = "naruto"
 
   const handleSearch = async (searchTerm) => {
@@ -26,23 +28,27 @@ const App = () => {
     });
   };
 
+  const showInventory = (status) => {
+    setStatusInventory(status)
+  }
+
   useEffect(() => {
     handleSearch(defaultValue)
   }, [])
 
   return (
     <>
-      <Header onSearch={handleSearch} total={savedGifs.length}></Header>
+      <Header onSearch={handleSearch} total={savedGifs.length} inventory={showInventory}></Header>
 
       <div className='content'>
         <div className='content-img'>
-          <GifList gifs={gifs} onSave={handleSaveGif} />
+          {!statusInventory ?
+            <GifList gifs={gifs} onSave={handleSaveGif} /> :
+            <SavedGifList gifs={savedGifs}  />
+          }
         </div>
 
       </div>
-      {/* <Search onSearch={handleSearch} />
-      <GifList gifs={gifs} onSave={handleSaveGif} />
-      <SavedGifList savedGifs={savedGifs} /> */}
     </>
   );
 };

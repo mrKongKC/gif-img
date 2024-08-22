@@ -6,6 +6,12 @@
   overflow-y: auto;
 }
 
+@media (max-width: 960px) {
+  .gif-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .gif-item-content-btn {
   border-radius: 8px;
   background-color: transparent;
@@ -17,6 +23,10 @@
 .gif-item-content-btn:hover {
   box-shadow: 0 4px 8px #808083;
   transition: all 0.2s ease-in-out;
+}
+
+.gif-item-content-btn:hover .gif-image {
+  opacity: 0.6;
 }
 
 .gif-item {

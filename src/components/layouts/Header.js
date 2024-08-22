@@ -1,8 +1,14 @@
 import { useState } from 'react';
 import "../../css/Header.css"
 
-const Header = ({ onSearch, total }) => {
+const Header = ({ onSearch, total, inventory }) => {
     const [searchTerm, setSearchTerm] = useState('');
+    const [statusInventory, setStatusInventory] = useState(false);
+
+    const handleSetInventory = () => {
+        setStatusInventory(!statusInventory)
+        inventory(!statusInventory)
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -13,7 +19,7 @@ const Header = ({ onSearch, total }) => {
     return (
         <div className='header-layout'>
             <div className='header-content'>
-                <div className='w-80'>
+                <div className='custom-w-80'>
                     <form onSubmit={handleSubmit} style={{ display: 'flex' }} className='w-100'>
                         <input
                             className='input-field w-80'
@@ -28,8 +34,8 @@ const Header = ({ onSearch, total }) => {
                         </button>
                     </form>
                 </div>
-                <div className='w-20 flex-center justify-center'>
-                    <button className='save-title-btn'>Save ({total})</button>
+                <div className='custom-w-20 flex-center justify-center'>
+                    <button className='save-title-btn' onClick={handleSetInventory}> {!statusInventory ? `Save (${total})` : 'Back'}</button>
                 </div>
 
             </div>
