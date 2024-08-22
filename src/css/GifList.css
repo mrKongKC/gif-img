@@ -1,0 +1,67 @@
+.gif-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.gif-item-content-btn {
+  border-radius: 8px;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid #e4e4f0;
+  overflow: hidden;
+}
+
+.gif-item-content-btn:hover {
+  box-shadow: 0 4px 8px #808083;
+  transition: all 0.2s ease-in-out;
+}
+
+.gif-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.gif-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.hover-img,
+.hover-clicked {
+  opacity: 0;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 22px;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.gif-item-content-btn:hover .gif-item .hover-img,
+.gif-item-content-btn.clicked .hover-clicked {
+  opacity: 1;
+}
+
+.gif-button {
+  position: absolute;
+  margin-top: 8px;
+  cursor: pointer;
+  color: #fb5a5a;
+}
+
+.see-more-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 16px;
+}
+
+p.see-more {
+  text-decoration: underline;
+  font-weight: 600;
+  cursor: pointer;
+}
